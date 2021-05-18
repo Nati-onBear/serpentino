@@ -1,0 +1,37 @@
+void run()
+{
+	int n;
+	
+    gui();
+    
+    options();
+    std::cin >> n; 
+    
+    clearScreen();
+	// Loading screen
+	load();
+    // Initialize the map
+    initialMap();
+    // While not hitting
+    while (running == true) {
+        // If a key is pressed
+        if (kbhit()) {
+            // Change to direction determined by key pressed
+            changeDirection(getch());
+        }
+        // Upate the map
+        update(n);
+
+        // Clear the screen
+        clearScreen();
+        //clrscr();
+
+        // Print the map
+        printMap();
+
+        // wait
+        Sleep(sec);
+    }
+
+    gameOver();
+}
